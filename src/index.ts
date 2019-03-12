@@ -165,7 +165,7 @@ export default function generateVariable(option: Option) {
   const mapResult: string = Object.entries(mergedMap).reduce(
     (last, [key, value]) => {
       // set up !default for map
-      let suffix: string = "";
+      let suffix: string = semi ? ";" : "";
       if (typeof value === "object" && value.default) {
         suffix = " !default;";
         delete value.default;
