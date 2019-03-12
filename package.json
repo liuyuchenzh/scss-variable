@@ -6,6 +6,7 @@
   "umd:main": "dist/index.umd.js",
   "module": "dist/index.mjs",
   "source": "src/index.ts",
+  "typings": "dist/index.d.ts",
   "repository": "https://github.com/liuyuchenzh/scss-variable.git",
   "author": "Yuchen Liu",
   "license": "MIT",
