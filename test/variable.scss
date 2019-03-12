@@ -1,0 +1,25 @@
+
+$ns-size-large:20px;
+$ns-size-normal:14px;
+$ns-size-small:12px;
+$ns-color-normal:#444;
+$ns-color-small:#222;
+
+
+$mapNS: (
+  size: (
+    normal: (
+      font-size: 100px,
+      height: 32px,
+      padding-horizontal: 16px,
+      color: $ns-color-normal
+    ),
+    small: (
+      font-size: 11px,
+      height: 24px,
+      padding-horizontal: 8px,
+      color: $ns-color-small
+    )
+  )
+)
+

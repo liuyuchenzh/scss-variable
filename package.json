@@ -20,6 +20,10 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "microbundle --target node",
-    "dev": "microbundle watch --target node"
+    "dev": "microbundle watch --target node",
+    "test": "node test"
+  },
+  "dependencies": {
+    "prettier": "^1.16.4"
   }
 }
