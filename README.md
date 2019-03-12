@@ -312,6 +312,6 @@ Signature should look like `Object.assign`
 
 ## TODO
 
-- [ ] watch mode
+- [x] watch mode
 - [ ] cli
 - [ ] webpack-loader

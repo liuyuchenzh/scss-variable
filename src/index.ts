@@ -1,9 +1,12 @@
-import { writeFile } from "fs";
+import { writeFile, readFileSync } from "fs";
 import merge from "lodash/merge";
 import flow from "lodash/flow";
 import set from "lodash/set";
+import chokidar from "chokidar";
 
 type VariableMap = { [key: string]: string | VariableMap };
+
+const NAME: string = "scss-variable";
 
 export interface Option {
   src: string;
@@ -17,6 +20,7 @@ export interface Option {
   mapKey?: string;
   separator?: string;
   mapSeparator?: string;
+  watch: boolean;
   merge?(target: VariableMap, ...source: VariableMap[]): VariableMap;
 }
 
@@ -79,34 +83,38 @@ export default function generateVariable(option: Option) {
     mapSeparator = ".",
     beforeBody = "",
     afterBody = "",
-    mapKey = "_map_"
+    mapKey = "_map_",
+    watch = false
   } = option;
 
   const source: VariableMap = require(src);
+  console.log("source", source);
   if (typeof source !== "object") {
     throw new Error(`${src} is not a valid source file`);
   }
 
+  const source2Use = merge({}, source);
+
   // merge two parts
   // one is variables
   // one is map
-  const map = source[mapKey] as undefined | VariableMap;
+  const map = source2Use[mapKey] as undefined | VariableMap;
   const mapToBeMerged: VariableMap = map || {};
   let overrideMapToBeMerged: VariableMap = {};
   if (map) {
-    delete source[mapKey];
+    delete source2Use[mapKey];
   }
-  const sourceVarsToBeMerged = flattenObj(source, [], separator);
+  const sourceVarsToBeMerged = flattenObj(source2Use, [], separator);
   let result = sourceVarsToBeMerged;
-
   // merge variables
-  if (override) {
-    const overrideMap = override[mapKey];
+  let overRide2Use = merge({}, override);
+  if (overRide2Use) {
+    const overrideMap = overRide2Use[mapKey];
     if (overrideMap) {
       overrideMapToBeMerged = overrideMap as VariableMap;
-      delete override[mapKey];
+      delete overRide2Use[mapKey];
     }
-    const overrideVarsToBeMerged = flattenObj(override, [], separator);
+    const overrideVarsToBeMerged = flattenObj(overRide2Use, [], separator);
     if (typeof customMerge === "function") {
       result = customMerge({}, sourceVarsToBeMerged, overrideVarsToBeMerged);
     } else {
@@ -117,7 +125,7 @@ export default function generateVariable(option: Option) {
   // check key from override in source[mapKey]
   // source = { _map_: { map : { ns : { ns: "oldValue" } } } }
   // override = { map.ns.ns.key: "newValue" }
-  if (map && override) {
+  if (map && overRide2Use) {
     const flattenSourceMap = flattenObj(map, [], mapSeparator);
     const flattenKeys: string[] = Object.keys(flattenSourceMap);
     const mapKeyAndPropNamePair: [string, string][] = flattenKeys.map(
@@ -132,12 +140,12 @@ export default function generateVariable(option: Option) {
     );
     const mapsWriteInKey: [string, string][] = mapKeyAndPropNamePair.filter(
       ([mapKey]) => {
-        return mapKey in override;
+        return mapKey in overRide2Use;
       }
     );
     if (mapsWriteInKey.length) {
       const extraOverrideMap = mapsWriteInKey.reduce((last, [mapKey]) => {
-        set(last, mapKey.split(mapSeparator).join("."), override[mapKey]);
+        set(last, mapKey.split(mapSeparator).join("."), overRide2Use[mapKey]);
         return last;
       }, {});
       // since mapKey is only useful for map merge
@@ -176,6 +184,19 @@ export default function generateVariable(option: Option) {
     },
     ""
   );
+
+  // watch mode
+  if (watch) {
+    console.log(`[${NAME}]: watching...`);
+    const watcher = chokidar.watch(src);
+    watcher.on("change", () => {
+      // require fresh module every time
+      delete require.cache[require.resolve(src)];
+      console.log(`[${NAME}]: source changed, recompile`);
+      generateVariable({ ...option, watch: false });
+    });
+  }
+
   return writeFile(
     dest,
     `${beforeBody}\n${resultString}\n${mapResult}\n${afterBody}`,
