@@ -1,4 +1,4 @@
-import { writeFile, readFileSync } from "fs";
+import { writeFile } from "fs";
 import merge from "lodash/merge";
 import flow from "lodash/flow";
 import set from "lodash/set";
