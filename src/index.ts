@@ -20,7 +20,7 @@ export interface Option {
   mapKey?: string;
   separator?: string;
   mapSeparator?: string;
-  watch: boolean;
+  watch?: boolean;
   merge?(target: VariableMap, ...source: VariableMap[]): VariableMap;
 }
 
