@@ -9,7 +9,6 @@
   "repository": "https://github.com/liuyuchenzh/scss-variable.git",
   "author": "Yuchen Liu",
   "license": "MIT",
-  "private": true,
   "devDependencies": {
     "@types/lodash": "^4.14.122",
     "@types/node": "^11.11.0",
