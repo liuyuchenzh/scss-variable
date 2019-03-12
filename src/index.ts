@@ -88,7 +88,6 @@ export default function generateVariable(option: Option) {
   } = option;
 
   const source: VariableMap = require(src);
-  console.log("source", source);
   if (typeof source !== "object") {
     throw new Error(`${src} is not a valid source file`);
   }
