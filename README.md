@@ -1,5 +1,7 @@
 # scss-variable
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/liuyuchenzh/scss-variable.svg)](https://greenkeeper.io/)
+
 Generate css variables fro different css pre-processors. Mainly target for scss/sass.
 
 ## Installation
