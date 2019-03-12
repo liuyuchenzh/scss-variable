@@ -12,12 +12,14 @@ module.exports = {
   },
   _map_: {
     mapNS: {
+      default: true,
       size: {
         normal: {
           "font-size": "18px",
           height: "32px",
           "padding-horizontal": "16px",
-          color: "$ns-color-normal"
+          color: "$ns-color-normal",
+          default: true
         },
         small: {
           "font-size": "12px",

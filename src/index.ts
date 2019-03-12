@@ -157,7 +157,15 @@ export default function generateVariable(option: Option) {
   const mergedMap = merge({}, mapToBeMerged, overrideMapToBeMerged);
   const mapResult: string = Object.entries(mergedMap).reduce(
     (last, [key, value]) => {
-      return last + `${prefix}${key}: ${objToMap(value as VariableMap)}\n`;
+      // set up !default for map
+      let suffix: string = "";
+      if (typeof value === "object" && value.default) {
+        suffix = " !default;";
+        delete value.default;
+      }
+      return (
+        last + `${prefix}${key}: ${objToMap(value as VariableMap)}${suffix}\n`
+      );
     },
     "\n"
   );
