@@ -302,6 +302,12 @@ String inserted after generated content
 `${generatedContent}\n${afterBody}`;
 ```
 
+### [watch]
+
+Default: `false`
+
+Watch `src` to recompile.
+
 ### [merge]
 
 Default: `lodash.merge`
