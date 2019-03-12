@@ -1,4 +1,4 @@
-# css-variable
+# scss-variable
 
 Generate css variables fro different css pre-processors. Mainly target for scss/sass.
 
