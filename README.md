@@ -76,6 +76,31 @@ $ns: (
 );
 ```
 
+To use `!default`
+
+```js
+module.exports = {
+  _map_: {
+    ns: {
+      default: true,
+      case: {
+        "font-size": "12px"
+      }
+    }
+  }
+};
+```
+
+Output will look like this
+
+```scss
+$ns: (
+  case: (
+    font-size: 12px
+  )
+) !default;
+```
+
 > map will be emitted after variables
 
 > You can refer to your variables in your map
@@ -284,7 +309,6 @@ Default: `lodash.merge`
 **Dangerous area**. Function used to merge `src` and `override`
 
 Signature should look like `Object.assign`
-
 
 ## TODO
 
