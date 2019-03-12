@@ -14,11 +14,9 @@ export interface Option {
   override?: VariableMap;
   beforeBody?: string;
   afterBody?: string;
-  scssMap?: boolean;
   mapKey?: string;
   separator?: string;
   mapSeparator?: string;
-
   merge?(target: VariableMap, ...source: VariableMap[]): VariableMap;
 }
 
