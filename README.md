@@ -284,3 +284,10 @@ Default: `lodash.merge`
 **Dangerous area**. Function used to merge `src` and `override`
 
 Signature should look like `Object.assign`
+
+
+## TODO
+
+- [ ] watch mode
+- [ ] cli
+- [ ] webpack-loader
