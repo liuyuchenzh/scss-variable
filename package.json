@@ -19,7 +19,7 @@
     "microbundle": "^0.11.0",
     "prettier": "^1.16.4",
     "pretty-quick": "^1.10.0",
-    "typescript": "^3.3.3333"
+    "typescript": "3.9.10"
   },
   "scripts": {
     "clean": "rm -rf dist",
