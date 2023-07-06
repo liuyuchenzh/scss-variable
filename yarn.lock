@@ -207,15 +207,20 @@
   resolved "http://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.122.tgz#3e31394c38cf1e5949fb54c1192cbc406f152c6c"
   integrity sha1-PjE5TDjPHllJ+1TBGSy8QG8VLGw=
 
-"@types/node@*", "@types/node@^11.11.0":
-  version "11.11.0"
-  resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-11.11.0.tgz#070e9ce7c90e727aca0e0c14e470f9a93ffe9390"
-  integrity sha1-Bw6c58kOcnrKDgwU5HD5qT/+k5A=
+"@types/node@*":
+  version "20.4.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.0.tgz#01d637d1891e419bc85763b46f42809cd2d5addb"
+  integrity sha512-jfT7iTf/4kOQ9S7CHV9BIyRaQqHu67mOjsIQBC3BKZvzvUB6zLxEwJ6sBE3ozcvP8kF6Uk5PXN0Q+c0dfhGX0g==
+
+"@types/node@^11.11.0":
+  version "11.15.54"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.15.54.tgz#59ed60e7b0d56905a654292e8d73275034eb6283"
+  integrity sha512-1RWYiq+5UfozGsU6MwJyFX6BtktcT10XRjvcAQmskCtMcW3tPske88lM/nHv7BQG1w9KBXI1zPGuu5PnNCX14g==
 
 "@types/q@^1.5.1":
-  version "1.5.1"
-  resolved "http://registry.npm.taobao.org/@types/q/download/@types/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
-  integrity sha1-SP2YwVYf5xi2FzPa7Ub/EVtJbhg=
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.5.tgz#75a2a8e7d8ab4b230414505d92335d1dcb53a6df"
+  integrity sha512-L28j2FcJfSZOnL1WBjDYp2vUHCeIFlyYI/53EwD/rKUBQ7MtUUfbQWiyKJGpcnv4/WgrhWsFKrcPstcAt/J0tQ==
 
 abbrev@1:
   version "1.1.1"
