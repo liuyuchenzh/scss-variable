@@ -207,10 +207,17 @@
   resolved "http://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.122.tgz#3e31394c38cf1e5949fb54c1192cbc406f152c6c"
   integrity sha1-PjE5TDjPHllJ+1TBGSy8QG8VLGw=
 
-"@types/node@*", "@types/node@^11.11.0":
+"@types/node@*":
   version "11.11.0"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-11.11.0.tgz#070e9ce7c90e727aca0e0c14e470f9a93ffe9390"
   integrity sha1-Bw6c58kOcnrKDgwU5HD5qT/+k5A=
+
+"@types/node@^20.0.0":
+  version "20.11.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.6.tgz#6adf4241460e28be53836529c033a41985f85b6e"
+  integrity sha512-+EOokTnksGVgip2PbYbr3xnR7kZigh4LbybAfBAw5BpnQ+FqBYUsvCEjYd70IXKlbohQ64mzEYmMtlWUY8q//Q==
+  dependencies:
+    undici-types "~5.26.4"
 
 "@types/q@^1.5.1":
   version "1.5.1"
@@ -4432,6 +4439,11 @@ typescript@>=2.8.3, typescript@^3.3.3333:
   version "3.3.3333"
   resolved "http://registry.npm.taobao.org/typescript/download/typescript-3.3.3333.tgz#171b2c5af66c59e9431199117a3bcadc66fdcfd6"
   integrity sha1-FxssWvZsWelDEZkRejvK3Gb9z9Y=
+
+undici-types@~5.26.4:
+  version "5.26.5"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-5.26.5.tgz#bcd539893d00b56e964fd2657a4866b221a65617"
+  integrity sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
